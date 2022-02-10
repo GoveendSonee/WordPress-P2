@@ -186,6 +186,7 @@ get_header();
                         Learning <span>Skills</span>
                     </div>
                     <div class="row skillss">
+
                         <div class="col-lg-6 col-sm-12">
                             <div class="card">
                                 <div class="card-text">
@@ -206,6 +207,7 @@ get_header();
                                 </div>
                             </div>
                         </div>
+                        
                     </div>
                     <div class="button">
                         <a class="btn btn-primary" href="skills.html" role="button">View More Skills</a>
