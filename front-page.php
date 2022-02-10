@@ -14,20 +14,64 @@
 
 get_header();
 ?>
-
+ 
     <!-- Start Hero Section  -->
     <section id="hero">
         <div class="container">
             <div class="row">
                 <div class="card govindsah bio">
-                    <div class="name">
-                        Hi! I'm <span>Goveend Sonee.</span>
-                    </div>
-                    <p class="about">
-                  
-                        <b>Passion is not about doing something BIG ..... Passion is doing small things with 100%.</b><br><br>
-                        I'm a Learner and (Back-End / Front-End) Developer based in Kathmandu from Janakpur, Nepal.
+
+                    <?php 
+                        $text = get_theme_mod('goveendsonee_text_title');
+                        $span = get_theme_mod('goveendsonee_span_title');
+                        $bold = get_theme_mod('goveendsonee_bolddescribe_title');
+                        $unbold = get_theme_mod('goveendsonee_unbolddescribe_title');
                         
+                    ?>
+                    <div class="name">
+                        <?php
+                            if ($text != '') {
+                                echo $text;
+                            } 
+                            else {
+                                echo "Hi Folks, I'm";
+                            }
+                            
+                        ?>
+                        
+                        <span>
+                            <?php
+                                if ($span != '') {
+                                    echo $span;
+                                } 
+                                else {
+                                    echo "Goveend Sonee.";
+                                }
+                            ?>
+                        </span>
+                    </div>
+
+                    <p class="about">
+                        <b>
+                            <?php
+                                if ($bold != ''){
+                                    echo $bold;
+                                }
+                                else{
+                                    echo "Passion is not about doing something BIG ..... Passion is doing small things with 100%.";
+                                }
+                            ?>
+                            
+                        </b>
+                        <br><br>
+                            <?php
+                                if($unbold != ''){
+                                    echo $unbold;
+                                }
+                                else{
+                                    echo "I'm a Learner and (Back-End / Front-End) Developer based in Kathmandu from Janakpur, Nepal.";
+                                }
+                            ?>
                     </p>
                     <ul>
                         <li></li>
@@ -43,30 +87,88 @@ get_header();
         </div>
     </section>
     <!-- End Hero Section  -->
-
+ 
     <!-- Start About Me  -->
     <section id="about">
         <div class="container">
             <div class="row">
                 <div class="card text-center">
+                    
+                    <?php 
+                        $abouttext = get_theme_mod('goveendsonee_about_title');
+                        $aboutspan = get_theme_mod('goveendsonee_about_span_title');
+                        $image = get_theme_mod('basic-author-callout-image');
+                        $abouttextarea = get_theme_mod('goveendsonee_about_textarea_title');
+                        $link = get_theme_mod('goveendsonee_about_link_title');
+                        $readmore = get_theme_mod('goveendsonee_about_readmore_title');
+                        
+                    ?>
                     <div class="heading">
-                        About <span>Myself</span>
+
+                        <?php
+                            if ($abouttext != '') {
+                                echo $abouttext;
+                            } 
+                            else {
+                                echo "About";
+                            }
+                        ?> 
+
+                        <span>
+                            <?php
+                                if ($aboutspan != '') {
+                                    echo $aboutspan;
+                                } 
+                                else {
+                                    echo "Myself";
+                                }
+                            ?>
+
+                        </span>
                     </div>
                     <div class="row describe">
-                        <div class="col-lg-4 col-sm-12">
-                            <div class="card">
-                                <img src="assets/img/logo.jpg" class="card-img-top" alt="">
+
+                        <?php if ( ! empty( $image ) ) : ?>
+                            <div class="col-lg-4 col-sm-12">
+                                <div class="card">
+
+                                    <img src="<?php echo esc_url( $image ); ?>" class="card-img-top" alt="<?php echo esc_attr( $image ); ?>">
+
+                                </div>
                             </div>
-                        </div>
+                        <?php endif; ?> 
+
                         <div class="col-lg-8 col-sm-12">
                             <div class="card-body">
                                 <p class="card-text">
-                                    I'm Goveend Sonee, Nepal based web designer and front‑end developer living in Kathmandu focused on crafting clean, creative and user‑friendly experiences, I build beautiful and powerful websites and learner.
+
+                                    <?php
+                                        if ($abouttextarea != '') {
+                                            echo $abouttextarea;
+                                        } 
+                                        else {
+                                            echo "I'm Goveend Sonee, Nepal based web designer and front‑end developer living in Kathmandu focused on crafting clean, creative and user‑friendly experiences, I build beautiful and powerful websites and learner.";
+                                        }
+                                    ?>
+
                                 </p>
                             </div>
+
+                            <?php if ( ! empty( $link ) ) : ?>
                             <div class="button">
-                                <a class="btn btn-primary" href="about.html" role="button">Know Me More</a>
+                                <a class="btn btn-primary" href="<?php echo esc_url( $link ); ?>" role="button">
+                                    <?php
+                                        if ($readmore != '') {
+                                            echo $readmore;
+                                        } 
+                                        else {
+                                            echo "Know Me More";
+                                        }
+                                    ?>   
+                                </a>
                             </div>
+                            <?php endif; ?> 
+
                         </div>
                     </div>
                 </div>
