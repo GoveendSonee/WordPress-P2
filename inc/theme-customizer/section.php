@@ -1,12 +1,21 @@
 <?php
+/**
+ * section add for customizer
+ */
 
-    //section add for customizer
-    $wp_customize->add_section('goveendsonee_homepage_section', array(
+    /**Hero-Sections*/
+    $wp_customize->add_section( 'goveendsonee_homepage_section' , array(
     
-        'title'=> __('Homepage','goveendsonee'),
-        'priority'=> 1,
-        'panel'=> 'homepage_panel_theme_options'
-    
+        'panel' => 'homepage_panel_theme_options',
+        'title'      => __( 'Hero Section', 'goveendsonee' ),
+        'priority'   => 1,
+    ) );
+
+    /**About Me*/
+    $wp_customize->add_section('goveendsonee_about_me_section', array(
+        'panel' => 'homepage_panel_theme_options',
+        'title' => __('About Me', 'goveendsonee'),
+        'priority' => 10,
     ));
 
 ?>
