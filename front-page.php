@@ -19,14 +19,15 @@ get_header();
     <section id="hero">
         <div class="container">
             <div class="row">
-                <!-- <canvas id="gameCanvas" width="400" height="300"></canvas> -->
-                   
                 <div class="card govindsah bio">
                     <div class="name">
                         Hi! I'm <span>Goveend Sonee.</span>
                     </div>
                     <p class="about">
-                        I'm a Freelancer Google Analytic Player and (Back-End / Front-End) Developer based in Kathmandu from Janakpur, Nepal.
+                  
+                        <b>Passion is not about doing something BIG ..... Passion is doing small things with 100%.</b><br><br>
+                        I'm a Learner and (Back-End / Front-End) Developer based in Kathmandu from Janakpur, Nepal.
+                        
                     </p>
                     <ul>
                         <li></li>
@@ -212,4 +213,4 @@ get_header();
     <!-- End Blog  -->	
 
 <?php
-get_footer();
+// get_footer();

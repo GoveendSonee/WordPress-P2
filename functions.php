@@ -180,6 +180,11 @@ require get_template_directory() . '/inc/template-functions.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
+ 
+/**
+ * Theme Customization
+ */
+require get_template_directory() .'/inc/theme-customizer/functions.php';
 
 /**
  * Load Jetpack compatibility file.
@@ -187,4 +192,3 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
-
