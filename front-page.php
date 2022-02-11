@@ -227,42 +227,42 @@ get_header();
                         Port<span>folio</span>
                     </div>
                     <div class="row portfolio">
+                    <?php 
+                        /**The Query */ 
+                        $args= array(
+                            'posts_per_page' => 4,
+                            'post_type' => 'portfolios'
+                        );
+                        $the_query = new WP_Query( $args );
+                        if ( $the_query->have_posts() ) : 
+                        while ( $the_query->have_posts() ) : $the_query->the_post(); 
+                        /** */
+                    ?>
                         <div class="col-lg-3 col-md-6 col-sm-12">
                             <div class="card bg-dark text-white">
-                                <img src="assets/img/website.png" class="card-img" alt="assets/img/website.png">
+                                <?php
+                                    $feature_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+                                    if ( has_post_thumbnail()) : 
+                                ?>
+                                    <img src="<?php echo $feature_image; ?>" class="card-img" alt="<?php the_title_attribute(); ?>">
+                                <?php 
+                                    endif; 
+                                ?>
                                 <div class="card-img-top">
-                                  <h5 class="card-title">Card title</h5>
-                                  <p class="card-text">Category: <span>News-Portal</span></p>
+                                  <h5 class="card-title"><?php the_title(); ?></h5>
+                                    <?php 
+                                        foreach((get_the_category()) as $category) { ?>
+                                            <p class="card-text">Category: <span><?php echo $category->cat_name . ' '; ?></span></p>
+                                    <?php
+                                      } 
+                                    ?>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-6 col-sm-12">
-                            <div class="card bg-dark text-white">
-                                <img src="assets/img/website.png" class="card-img" alt="assets/img/website.png">
-                                <div class="card-img-top">
-                                  <h5 class="card-title">Card title</h5>
-                                  <p class="card-text">Category: <span>News-Portal</span></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-12">
-                            <div class="card bg-dark text-white">
-                                <img src="assets/img/website.png" class="card-img" alt="assets/img/website.png">
-                                <div class="card-img-top">
-                                  <h5 class="card-title">Card title</h5>
-                                  <p class="card-text">Category: <span>News-Portal</span></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-12">
-                            <div class="card bg-dark text-white">
-                                <img src="assets/img/website.png" class="card-img" alt="assets/img/website.png">
-                                <div class="card-img-top">
-                                  <h5 class="card-title">Card title</h5>
-                                  <p class="card-text">Category: <span>News-Portal</span></p>
-                                </div>
-                            </div>
-                        </div>
+                    <?php 
+                        endwhile; endif; 
+                        wp_reset_postdata(); 
+                    ?>
                     </div>
                     <div class="button">
                         <a class="btn btn-primary" href="portfolio.html" role="button">View More Demo</a>
@@ -282,30 +282,40 @@ get_header();
                         Documentation
                     </div>
                     <div class="row blog">
+                    <?php 
+                        /**The Query */ 
+                        $args= array(
+                            'posts_per_page' => 2,
+                            'post_type' => 'post'
+                        );
+                        $the_query = new WP_Query( $args );
+                        if ( $the_query->have_posts() ) : 
+                        while ( $the_query->have_posts() ) : $the_query->the_post(); 
+                    ?>
                         <div class="col-lg-6 col-sm-12">
                             <div class="card">
-                                <img src="assets/img/bg.jpg" class="card-img-top" alt="assets/img/bg.jpg">
+                                <?php
+                                    $feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+                                    if ( has_post_thumbnail()) : 
+                                ?>
+                                    <img src="<?php echo $feat_image; ?>" class="card-img-top" alt="<?php the_title_attribute(); ?>">
+                                <?php 
+                                    endif; 
+                                ?>
+
                                 <div class="card-body">
-                                  <h5 class="card-title"> All The JavaScript You Need All The JavaScript You Need All The JavaScript You Need To Know For React Card title</h5>
-                                  <p class="card-text"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eum est quas aliquid aut. Obcaecati veritatis illum neque iste consectetur quos. Repellendus ipsam nemo, dignissimos impedit veniam quia suscipit. Reprehenderit. Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                  <h5 class="card-title"><?php the_title(); ?></h5>
+                                  <?php the_excerpt(); ?>
                                 </div>
                                 <div class="button">
-                                    <a class="btn btn-primary" href="#" role="button">Read More</a>
+                                    <a class="btn btn-primary" href="<?php the_permalink(); ?>" role="button"><?php echo esc_html__('Read More','goveendsonee'); ?></a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6 col-sm-12">
-                            <div class="card">
-                                <img src="assets/img/bg.jpg" class="card-img-top" alt="assets/img/bg.jpg">
-                                <div class="card-body">
-                                  <h5 class="card-title"> All The JavaScript You Need To Know For React Card title</h5>
-                                  <p class="card-text"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. At non adipisci quas reiciendis et nesciunt tenetur quos nulla ab alias laudantium quia veritatis excepturi, quisquam repudiandae itaque ipsum! Voluptates, necessitatibus. Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                </div>
-                                <div class="button">
-                                    <a class="btn btn-primary" href="#" role="button">Read More</a>
-                                </div>
-                            </div>
-                        </div>
+                    <?php 
+                        endwhile; endif; 
+                        wp_reset_postdata(); 
+                    ?>
                     </div>
                     <div class="button">
                         <a class="btn btn-primary" href="blog.html" role="button">View More Demo</a>

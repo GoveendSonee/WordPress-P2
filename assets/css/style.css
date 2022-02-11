@@ -551,7 +551,7 @@ section#blog .card.text-center .row.blog .col-lg-6.col-sm-12 .card .card-body h5
   overflow: hidden;
 }
 
-section#blog .card.text-center .row.blog .col-lg-6.col-sm-12 .card .card-body p.card-text {
+section#blog .card.text-center .row.blog .col-lg-6.col-sm-12 .card .card-body p {
   border: 4px solid #f9dbdb;
   border-radius: 2rem 0 0;
   height: 10rem;

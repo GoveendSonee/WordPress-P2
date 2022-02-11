@@ -16,5 +16,4 @@ function explore_goveendsonee_customizer_section( $wp_customize ) {
 
 }
 
-
 ?>
