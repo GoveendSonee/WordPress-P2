@@ -224,7 +224,7 @@ get_header();
             <div class="row">
                 <div class="card text-center">
                     <div class="heading">
-                        Port<span>folio</span>
+                        <?php echo esc_html__('Port','goveendsonee'); ?><span><?php echo esc_html__('folio','goveendsonee'); ?></span>
                     </div>
                     <div class="row portfolio">
                     <?php 
@@ -265,7 +265,7 @@ get_header();
                     ?>
                     </div>
                     <div class="button">
-                        <a class="btn btn-primary" href="portfolio.html" role="button">View More Demo</a>
+                        <a class="btn btn-primary" href="<?php bloginfo("template_url")?>/portfolio" role="button"><?php echo esc_html__('View More Demo','goveendsonee'); ?></a>
                     </div>
                 </div>
             </div>
@@ -279,7 +279,7 @@ get_header();
             <div class="row">
                 <div class="card text-center">
                     <div class="card heading">
-                        Documentation
+                    <?php echo esc_html__('Documentation','goveendsonee'); ?>
                     </div>
                     <div class="row blog">
                     <?php 
@@ -318,7 +318,7 @@ get_header();
                     ?>
                     </div>
                     <div class="button">
-                        <a class="btn btn-primary" href="blog.html" role="button">View More Demo</a>
+                        <a class="btn btn-primary" href="<?php bloginfo("template_url")?>/blog" role="button"><?php echo esc_html__('View More Demo','goveendsonee'); ?></a>
                     </div>
                 </div>
             </div>

@@ -192,3 +192,22 @@ require get_template_directory() .'/inc/theme-customizer/functions.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+
+/**
+ * Post Pagination
+ */
+if ( ! function_exists( 'paginate_links' ) ) :
+    function paginate_links() {
+      global $wp_query;
+      $pager = 999999999; // need an unlikely integer
+  
+         echo paginate_links( array(
+              'base' => str_replace( $pager, '%#%', esc_url( get_pagenum_link( $pager ) ) ),
+              'format' => '?paged=%#%',
+              'current' => max( 1, get_query_var('paged') ),
+              'total' => $wp_query->max_num_pages,
+			  'prev_text' => '&laquo;',
+			  'next_text' => '&raquo;'
+         ) );
+    }
+ endif;

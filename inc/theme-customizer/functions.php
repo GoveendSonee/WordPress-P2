@@ -6,5 +6,6 @@
     /**CPT POST-Type Call In Functions */
     require get_template_directory() . '/inc/cpt/init.php';/** CPT Functions */
 
-
+    /**Loadmore Ajax Call In Functions */
+    require get_template_directory() . '/inc/loadmore/functions.php';/** CPT Functions */
 ?>
