@@ -211,3 +211,16 @@ if ( ! function_exists( 'paginate_links' ) ) :
          ) );
     }
  endif;
+
+// /**
+//  * Prevent WP from adding <p> tags on all post types
+//  * 	remove_filter( 'the_content', 'goveendsonee' );
+//  * remove_filter( 'the_excerpt', 'goveendsonee' );
+//  * remove_filter('term_description','goveendsonee');
+//  * /
+function disable_wp_auto_p( $content ) {
+	remove_filter( 'the_content', 'wpautop' );
+	remove_filter( 'the_excerpt', 'wpautop' );
+	return $content;
+  }
+  add_filter( 'the_excerpt', 'disable_wp_auto_p', 0 );
